@@ -2,13 +2,35 @@
     <div class="login-container">
         <el-card class="login-box">
             <img src="../../assets/images/logo_index.png" alt="">
+            <el-form ref="loginForm" :model="loginForm">
+                 <el-form-item>
+                    <el-input v-model="loginForm.mobile" placeholder="请输入手机号"></el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-input style="width:240px" v-model="loginForm.code" placeholder="请输入验证码"></el-input>
+                    <el-button style="float:right">发送验证码</el-button>
+                </el-form-item>
+                <el-form-item>
+                    <el-checkbox :value='true'>我已阅读并同意用户协议和隐私条款</el-checkbox>
+                </el-form-item>
+                <el-form-item>
+                    <el-button style="width:100%" type="primary">登 录</el-button>
+                </el-form-item>
+            </el-form>
         </el-card>
     </div>
 </template>
 
 <script>
 export default {
-
+  data () {
+    return {
+      loginForm: {
+        mobile: '',
+        code: ''
+      }
+    }
+  }
 }
 </script>
 
@@ -23,7 +45,7 @@ export default {
 
     .login-box {
         width: 400px;
-        height: 300px;
+        height: 340px;
         position: absolute;
         left: 50%;
         top: 50%;
