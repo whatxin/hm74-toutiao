@@ -48,12 +48,12 @@
                 <span class="text">江苏传智播客科技教育有限公司</span>
                 <el-dropdown style="float:right">
                     <span class="el-dropdown-link">
-                        <img style="vertical-align: middle;" width="30px" height="30px" src="../../assets/images/avatar.jpg" alt="">
-                        <b style="vertical-align: middle;padding-left:5px">黑马小哥</b>
+                        <img style="vertical-align: middle;" width="30px" height="30px" :src="avatar" alt="">
+                        <b style="vertical-align: middle;padding-left:5px">{{ name }}</b>
                     </span>
                     <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item icon='el-icon-setting'>个人设置</el-dropdown-item>
-                        <el-dropdown-item icon='el-icon-unlock'>退出登录</el-dropdown-item>
+                        <el-dropdown-item icon='el-icon-setting' @click.native='setting()'>个人设置</el-dropdown-item>
+                        <el-dropdown-item icon='el-icon-unlock' @click.native="logout()">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
             </el-header>
@@ -69,14 +69,35 @@
 export default {
   data () {
     return {
-      togg: false
+      togg: false,
+      avatar: '',
+      name: ''
     }
   },
+
   methods: {
     toggleMenu () {
       this.togg = !this.togg
+    },
+    setting () {
+      this.$router.push('/setting')
+    },
+
+    logout () {
+      window.sessionStorage.removeItem('hm-toutiao')
+      this.$router.push('/login')
+    }
+  },
+
+  created () {
+    const user = JSON.parse(window.sessionStorage.getItem('hm-toutiao'))
+    console.log(user)
+    if (user) {
+      this.avatar = user.photo
+      this.name = user.name
     }
   }
+
 }
 </script>
 
