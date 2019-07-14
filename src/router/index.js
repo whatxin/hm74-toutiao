@@ -21,4 +21,12 @@ const router = new VueRouter({
   ]
 })
 
+// 前置守卫
+router.beforeEach((to, from, next) => {
+  if (to.path === '/login') return next()
+  const user = window.sessionStorage.getItem('hm-toutiao')
+  if (user) return next()
+  next('/login')
+})
+
 export default router
