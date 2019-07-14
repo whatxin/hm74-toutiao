@@ -56,7 +56,7 @@ export default {
     login () {
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
-          this.axios.post('http://ttapi.research.itcast.cn/mp/v1_0/authorizations', this.loginForm)
+          this.axios.post('authorizations', this.loginForm)
             .then((res) => {
               // 保存token信息
               window.sessionStorage.setItem('hm-toutiao', JSON.stringify(res.data.data))
