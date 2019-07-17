@@ -8,8 +8,10 @@ import router from '@/router'
 
 import axios from '@/api/axios'
 
-Vue.prototype.axios = axios
+import bread from '@/components'
 
+Vue.prototype.axios = axios
+Vue.use(bread)
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false

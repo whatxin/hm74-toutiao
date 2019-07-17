@@ -1,6 +1,14 @@
 import axios from 'axios'
+import JSONBig from 'json-bigint'
 var instance = axios.create({
-  baseURL: 'http://ttapi.research.itcast.cn/mp/v1_0'
+  baseURL: 'http://ttapi.research.itcast.cn/mp/v1_0',
+  transformResponse: [(data) => {
+    // 转化最大数值
+    if (data) {
+      return JSONBig.parse(data)
+    }
+    return data
+  }]
 //   headers: {
 //     Authorization: 'Bearer ' + JSON.parse(window.sessionStorage.getItem('hm-toutiao')).token
 //   }

@@ -5,7 +5,7 @@
         <el-menu
         style="border-right:none"
         router
-            default-active="/"
+            :default-active="$route.path"
             background-color="#002033"
             text-color="#fff"
             active-text-color="#ffd04b"
@@ -91,7 +91,7 @@ export default {
 
   created () {
     const user = JSON.parse(window.sessionStorage.getItem('hm-toutiao'))
-    console.log(user)
+    // console.log(user)
     if (user) {
       this.avatar = user.photo
       this.name = user.name
