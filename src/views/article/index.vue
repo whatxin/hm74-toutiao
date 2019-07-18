@@ -19,14 +19,7 @@
                 </el-form-item>
 
                 <el-form-item label="频道：">
-                    <el-select v-model="formdata.options_id">
-                        <el-option
-                        v-for="item in options"
-                        :key="item.id"
-                        :label="item.name"
-                        :value="item.id">
-                        </el-option>
-                    </el-select>
+                  <my-channel v-model="formdata.options_id"></my-channel>
                 </el-form-item>
 
                 <el-form-item label="日期：">
@@ -108,8 +101,6 @@ export default {
         // 显示的条数
         per_page: 20
       },
-      // 下拉菜单
-      options: [],
       // 开始和结束日期
       time: [],
       // 文章列表数据
@@ -120,18 +111,10 @@ export default {
     }
   },
   created () {
-    // 获取评到数据
-    this.getChannelOptions()
     // 获取文章列表数据
     this.getArticles()
   },
   methods: {
-    // 频道数据
-    async getChannelOptions () {
-      const { data: { data } } = await this.axios.get('channels')
-      // 获取数据
-      this.options = data.channels
-    },
     // 选择时间
     changeTime (values) {
       // 开始时间
