@@ -99,7 +99,7 @@ export default {
         // 当前页码
         page: 1,
         // 显示的条数
-        per_page: 20
+        per_page: 10
       },
       // 开始和结束日期
       time: [],

@@ -10,6 +10,9 @@ import axios from '@/api/axios'
 
 import bread from '@/components'
 
+// 导入全局样式
+import '@/styles/index.less'
+
 Vue.prototype.axios = axios
 Vue.use(bread)
 Vue.use(ElementUI)
