@@ -81,7 +81,6 @@ export default {
       // 选中的图片
       // value: dafaultImage
       dafaultImage
-
     }
   },
   props: ['value'],

@@ -7,6 +7,7 @@ import noFound from '@/views/nofound'
 import Article from '@/views/article'
 import Image from '@/views/image'
 import Publish from '@/views/publish'
+import Comment from '@/views/comment'
 
 Vue.use(VueRouter)
 
@@ -20,7 +21,8 @@ const router = new VueRouter({
         { name: 'welcome', path: '/', component: Welcome },
         { name: 'Article', path: '/article', component: Article },
         { name: 'image', path: '/image', component: Image },
-        { name: 'publish', path: '/publish', component: Publish }
+        { name: 'publish', path: '/publish', component: Publish },
+        { name: 'comment', path: '/comment', component: Comment }
       ]
     },
     { path: '*', component: noFound }

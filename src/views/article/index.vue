@@ -107,7 +107,6 @@ export default {
       aritcles: [],
       // 总条数
       total: 0
-
     }
   },
   created () {
