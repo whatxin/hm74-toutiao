@@ -66,6 +66,7 @@
 </template>
 
 <script>
+import eventBus from '@/eventBus'
 export default {
   data () {
     return {
@@ -95,6 +96,12 @@ export default {
     if (user) {
       this.avatar = user.photo
       this.name = user.name
+      eventBus.$on('upName', (name) => {
+        this.name = name
+      })
+      eventBus.$on('uplphoto', (url) => {
+        this.avatar = url
+      })
     }
   }
 
